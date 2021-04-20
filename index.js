@@ -5,8 +5,8 @@ button.forEach(buttonitems=>{
     buttonitems.addEventListener('click', e=>{
         
         makesound(e.target.textContent);
-        
-        // buttonanimation(e.target.currentkey);
+
+        buttonanimation(e.target.textContent);
 
         //this toggle the pressed class directly
         // e.target.classList.toggle('pressed')
@@ -29,7 +29,7 @@ button.forEach(buttonitems=>{
 
 document.addEventListener('keypress', evt=>{
     makesound(evt.key);
-    buttonanimation(evt)
+    buttonanimation(evt.key)
 })
 
 
@@ -70,10 +70,17 @@ function makesound(key){
     };
 }
 
-function buttonanimation(currentkey){
-    var activebutton = document.querySelector('.' + currentkey);
-    activebutton.classList.add('pressed')
+function buttonanimation(activekey){
+    var activebutton = document.querySelector('.' + activekey);
+
+    activebutton.classList.add('pressed');
+    
+    setTimeout(() => {
+        activebutton.classList.remove('pressed')
+    }, 100);
+    
 }
+
 
 
 
