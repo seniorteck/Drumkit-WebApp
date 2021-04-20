@@ -23,9 +23,6 @@ button.forEach(buttonitems=>{
 // }
 
 
-// var audio = new Audio('sounds/crash.mp3');
-//         audio.play();
-
 
 document.addEventListener('keypress', evt=>{
     makesound(evt.key);
