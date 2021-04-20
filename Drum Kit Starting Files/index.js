@@ -1,11 +1,16 @@
 const button = document.querySelectorAll('.drum');
 
-//using for each
-button.forEach(e=>{
-    e.addEventListener('click', (pa)=>{
-        // console.log(pa.target.style.color = 'white')
-        makesound(pa.target.textContent)
-        // console.log(pa.target.textContent);
+//using for each method
+button.forEach(buttonitems=>{
+    buttonitems.addEventListener('click', e=>{
+        
+        makesound(e.target.textContent);
+        
+        // buttonanimation(e.target.currentkey);
+
+        //this toggle the pressed class directly
+        // e.target.classList.toggle('pressed')
+
     });
 });
 
@@ -22,8 +27,9 @@ button.forEach(e=>{
 //         audio.play();
 
 
-document.addEventListener('keypress', (e)=>{
-    makesound(e.key)
+document.addEventListener('keypress', evt=>{
+    makesound(evt.key);
+    buttonanimation(evt)
 })
 
 
@@ -62,6 +68,11 @@ function makesound(key){
         default:
             console.log('not avaliable')
     };
+}
+
+function buttonanimation(currentkey){
+    var activebutton = document.querySelector('.' + currentkey);
+    activebutton.classList.add('pressed')
 }
 
 
